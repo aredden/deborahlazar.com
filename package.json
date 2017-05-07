@@ -1,0 +1,14 @@
+{
+  "name": "deborahlazar.com",
+  "version": "0.0.1",
+  "description":"Deb Lazars website",
+  "repository":"https://github.com/aredden/deborahlazar.com",
+  "license":"UNLICENSED",
+  "scripts": {
+    "serve": "./node_modules/.bin/http-server -c-1"
+  },
+  "author": "Alex Redden <alexredden00@gmail.com>",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  }
+}
