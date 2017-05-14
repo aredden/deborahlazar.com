@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'react-bootstrap';
-import Feed from './Feed.js'
+import Feed from './Feed.js';
+import PaintRowComponent from './PaintingArchive.js';
 
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
     return (
       <div>
       <div>
-      <nav className="navbar navbar-default navbar-fixed-top">
+      <nav className="navbar navbar-inverse navbar-fixed-top">
         <div className="container-fluid">
 
         <div className="navbar-header">
@@ -65,7 +66,8 @@ class App extends Component {
           </div>
     </nav>
     </div>
-    <Feed />
+    <PaintRowComponent />
+
     </div>
 
     );
