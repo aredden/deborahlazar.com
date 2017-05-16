@@ -8,9 +8,9 @@ class Feed extends Component {
     return (
       <div>
       <div className="container container-fluid body-padding feed-scrolling">
-        <div className="col-md-3">
+        <div className="col-md-2">
         </div>
-        <div className="col-md-6">
+        <div className="col-md-8">
         <div className="panel panel-default">
           <div className="panel-body">
             <div className="jumbotron">
@@ -29,7 +29,7 @@ class Feed extends Component {
         </div>
       </div>
       </div>
-      <div className="col-md-3">
+      <div className="col-md-2">
       </div>
     </div>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'react-bootstrap';
+import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 
 
 class PaintRowComponent extends Component{
@@ -47,24 +48,24 @@ class PaintElement extends Component {
       <div>
         <div className="row">
           <div className="col-xs-6 col-md-2">
-            <a href="#" className="thumbnail">
+            <Link to="/painting" className="thumbnail">
               <img src="..." alt="..." />
-            </a>
+            </Link>
           </div>
           <div className="col-xs-6 col-md-2">
-            <a href="#" className="thumbnail">
+            <Link to="/painting" className="thumbnail">
               <img src="..." alt="..." />
-            </a>
+            </Link>
           </div>
           <div className="col-xs-6 col-md-2">
-            <a href="#" className="thumbnail">
+            <Link to="/painting" className="thumbnail">
               <img src="..." alt="..." />
-            </a>
+            </Link>
           </div>
           <div className="col-xs-6 col-md-2">
-            <a href="#" className="thumbnail">
+            <Link to="/painting" className="thumbnail">
               <img src="..." alt="..." />
-            </a>
+            </Link>
           </div>
           </div>
     </div>
