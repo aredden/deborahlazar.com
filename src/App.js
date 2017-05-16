@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/css/bootstrap-theme.css';
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import Modal from 'react-modal';
-
+import AliceCarousel from 'react-alice-carousel';
 
 const customStyles = {
   content : {
@@ -64,7 +64,7 @@ closeModal(e) {
               </div>
             </div>
         </Modal>
-      <nav className="navbar navbar-inverse navbar-fixed-top">
+      <nav className="navbar navbar-light navbar-padding">
         <div className="container-fluid">
 
         <div className="navbar-header">
@@ -80,19 +80,7 @@ closeModal(e) {
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
             <li><Link to="/archive">Archive <span className="sr-only"></span></Link></li>
-            <li><a href="#">Link</a></li>
-            <li className="dropdown">
-              <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span className="caret"></span></a>
-              <ul className="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" className="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li role="separator" className="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li><Link to="/events">Events <span className="sr-only"></span></Link></li>
           </ul>
 
           <form className="navbar-form navbar-left">
@@ -110,9 +98,6 @@ closeModal(e) {
           </div>
         </nav>
     <Main />
-
-
-
     </div>
 
 

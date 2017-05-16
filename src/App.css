@@ -3,10 +3,32 @@
 }
 
 .feed-scrolling{
-  height: 99999px;
+  height: 1000px;
 }
 
-.body-padding { padding-top: 70px; }
+.slideshow-size{
+    display: block;
+    shape-image-threshold: 1000px;
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 300px;
+    min-height:300px;
+}
+
+.embed-margin{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.sectionbgcolor {
+  background-color: #e6e6e6
+}
+
+.navbar-padding{
+  padding-bottom:30px;
+}
+
+.body-padding { padding-top: 50px; }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -33,3 +55,6 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+@import "../node_modules/react-alice-carousel/lib/alice-carousel.css";
+@import "../node_modules/react-alice-carousel/src/alice-carousel.scss";
