@@ -1,0 +1,31 @@
+{
+  "name": "deblazarswebsite",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^3.3.7",
+    "create-react-class": "^15.5.3",
+    "express": "^4.15.3",
+    "react": "^15.5.4",
+    "react-bootstrap": "^0.31.0",
+    "react-dom": "^15.5.4",
+    "react-modal": "^1.7.7",
+    "react-router-dom": "^4.1.1",
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "devDependencies": {
+    "react-alice-carousel": "^1.2.4",
+    "react-scripts": "0.9.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "watch": "./node_modules/.bin/webpack --watch"
+  }
+}

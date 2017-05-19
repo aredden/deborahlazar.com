@@ -1,0 +1,22 @@
+{
+  "name": "deblazarserver",
+  "version": "0.0.1",
+  "description": "express-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "author": "Alexander Redden",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mongo-express": "^0.40.0",
+    "mongodb": "^2.2.26",
+    "nodemailer": "^4.0.1"
+  }
+}
