@@ -7,7 +7,6 @@ import Painting from './Painting.js';
 import Events from './Events.js';
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import AliceCarousel from 'react-alice-carousel';
 const customStyles = {
   content : {
     top                   : '30%',
@@ -24,27 +23,39 @@ const customStyles = {
 class App extends Component {
   constructor(props) {
       super(props);
-      this.state = {modalIsOpen: false}
+      this.state = {modalLoginIsOpen: false,
+                    modalRegisterIsOpen: false
+              }
 }
 
 
-openModal() {
-  this.setState({modalIsOpen: true});
+openLoginModal(e) {
+  this.setState({modalLoginIsOpen: true});
 }
 
-closeModal(e) {
-  this.setState({modalIsOpen: false});
+closeLoginModal(e) {
+  this.setState({modalLoginIsOpen: false});
 }
+
+openRegisterModal(e) {
+  this.setState({modalRegisterIsOpen: true});
+}
+
+closeRegisterModal(e) {
+  this.setState({modalRegisterIsOpen: false});
+}
+
 
 
   render() {
     return (
       <div>
         <Modal
-          isOpen={this.state.modalIsOpen}
+          isOpen={this.state.modalLoginIsOpen}
           contentLabel="Example Modal"
           style = {customStyles}
         >
+
           <h2 ref="subtitle" className="">Login</h2>
             <div className="modal-text-padding">
             <div className="input-group">
@@ -56,8 +67,33 @@ closeModal(e) {
               </div>
               <br/>
               <div className="row">
-              <div className="btn btn-default align-left" onClick={(e) => this.closeModal(e)}>close</div>
-              <div className="btn btn-default align right" onClick={(e) => this.closeModal(e)}>submit</div>
+              <div className="btn btn-default align-left" onClick={(e) => this.closeLoginModal(e)}>close</div>
+              <div className="btn btn-default align right" onClick={(e) => this.closeLoginModal(e)}>submit</div>
+              </div>
+            </div>
+        </Modal>
+        <Modal
+          isOpen={this.state.modalRegisterIsOpen}
+          contentLabel="Example Modal"
+          style = {customStyles}
+        >
+
+          <h2 ref="subtitle" className="">Register</h2>
+            <div className="modal-text-padding">
+            <div className="input-group">
+              <input type="text" className="form-control" placeholder="email or username" aria-describedby="basic-addon2"/>
+            </div>
+            <br/>
+              <div className="input-group">
+                <input type="text" className="form-control" placeholder="password" aria-describedby="basic-addon2"/>
+              </div>
+              <div className="input-group">
+                <input type="text" className="form-control" placeholder="re-type password" aria-describedby="basic-addon2"/>
+              </div>
+              <br/>
+              <div className="row">
+              <div className="btn btn-default align-left" onClick={(e) => this.closeRegisterModal(e)}>close</div>
+              <div className="btn btn-default align right" onClick={(e) => this.closeRegisterModal(e)}>submit</div>
               </div>
             </div>
         </Modal>
@@ -88,16 +124,14 @@ closeModal(e) {
           </form>
 
             <ul className="nav navbar-nav navbar-right">
-              <li><a href="#">Join</a></li>
-              <li><a href="#" onClick={(e) => this.openModal(e)}>Login</a></li>
+              <li><a href="#" onClick={(e) => this.openRegisterModal(e)}>Register</a></li>
+              <li><a href="#" onClick={(e) => this.openLoginModal(e)}>Login</a></li>
             </ul>
           </div>
           </div>
         </nav>
-    <Main />
+        <Main />
     </div>
-
-
     );
   }
 }

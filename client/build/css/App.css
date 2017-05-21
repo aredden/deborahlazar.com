@@ -1,0 +1,54 @@
+.App {
+  text-align: center;
+}
+
+.feed-scrolling{
+  height: 1000px;
+}
+
+.slideshow-size{
+    display: block;
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 300px;
+    min-height:300px;
+}
+
+.embed-margin{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.sectionbgcolor {
+  background-color: #e6e6e6
+}
+
+.navbar-padding{
+  padding-bottom:30px;
+}
+
+.body-padding { padding-top: 50px; }
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.footerheight {
+  height:40%;
+}
+
+.modal-text-padding{
+  padding: 10px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}

@@ -4,6 +4,17 @@ import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 
 
 class PaintRowComponent extends Component{
+
+  constructor(props) {
+      super(props);
+      this.state = {paintings:[]
+              }
+  }
+
+  getPaintingsList(){
+
+  }
+
   render() {
     return (
       <div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import 'react-bootstrap';
-import AliceCarousel from 'react-alice-carousel';
-import Gallery from './FeedGallery.js'
+import Gallery from './FeedGallery2.js';
 
 class Feed extends Component {
   render() {
@@ -20,8 +19,16 @@ class Feed extends Component {
         <section>
           <Gallery/>
         </section>
-
-  </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <section className="footerheight text-center">
+            Artworking copyright 2016(c)
+            <br/>
+        </section>
+      </div>
     );
   }
 }

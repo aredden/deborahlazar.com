@@ -1,6 +1,12 @@
 
 var token = "YmFzaWN1c2VybmFtZTphYmMxMjM"
 
+function getPaintingsList(size){
+
+}
+
+
+
 function sendXHR(verb, resource, body, cb) {
   var xhr = new XMLHttpRequest();
   xhr.open(verb, resource);
