@@ -5,6 +5,7 @@ import NotFound from './NotFound.js'
 import PaintRowComponent from './PaintingArchive.js';
 import Painting from './Painting.js';
 import Events from './Events.js';
+import Admin from './Admin.js'
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import Modal from 'react-modal';
 const customStyles = {
@@ -50,12 +51,13 @@ closeRegisterModal(e) {
   render() {
     return (
       <div>
+
+
         <Modal
           isOpen={this.state.modalLoginIsOpen}
           contentLabel="Example Modal"
           style = {customStyles}
         >
-
           <h2 ref="subtitle" className="">Login</h2>
             <div className="modal-text-padding">
             <div className="input-group">
@@ -72,6 +74,8 @@ closeRegisterModal(e) {
               </div>
             </div>
         </Modal>
+
+
         <Modal
           isOpen={this.state.modalRegisterIsOpen}
           contentLabel="Example Modal"
@@ -97,6 +101,8 @@ closeRegisterModal(e) {
               </div>
             </div>
         </Modal>
+
+
       <nav className="navbar navbar-light navbar-padding">
         <div className="container-fluid">
 
@@ -124,6 +130,7 @@ closeRegisterModal(e) {
           </form>
 
             <ul className="nav navbar-nav navbar-right">
+              <li><Link to='/admin'>Admin</Link></li>
               <li><a href="#" onClick={(e) => this.openRegisterModal(e)}>Register</a></li>
               <li><a href="#" onClick={(e) => this.openLoginModal(e)}>Login</a></li>
             </ul>
@@ -140,6 +147,7 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Feed}/>
+      <Route path='/admin' component={Admin}/>
       <Route path='/archive' component={PaintRowComponent}/>
       <Route path='/painting' component={Painting}/>
       <Route path='/events' component={Events}/>

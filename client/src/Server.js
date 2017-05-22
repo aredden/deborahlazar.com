@@ -5,6 +5,11 @@ function getPaintingsList(size){
 
 }
 
+export function putPainting(painting,description,title,cb){
+  sendXHR("PUT","/addpainting/"+title+"/"+description,painting,(xhr)=>
+    {cb(JSON.parse(xhr.responseText))}
+  );
+}
 
 
 function sendXHR(verb, resource, body, cb) {

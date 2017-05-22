@@ -19,7 +19,7 @@ class Events extends Component {
             </div>
                   <div className="col-md-8">
                         <table className="table">
-                        <ul className="list-group">
+                          <ul className="list-group">
                           <li className="list-group-item">{this.state.artEvents[0]}</li>
                           <li className="list-group-item">{this.state.artEvents[1]}</li>
                           <li className="list-group-item">{this.state.artEvents[2]}</li>

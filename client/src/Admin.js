@@ -1,0 +1,135 @@
+import React, { Component } from 'react';
+import 'react-bootstrap';
+import Dropzone from 'react-dropzone';
+import { putPainting }from './Server.js';
+
+class Admin extends Component {
+  constructor(props) {
+      super(props);
+      this.state={
+        fileName:"No File Selected",
+        file:["No Preview"],
+        nameText:"",
+        descText:""
+      }
+      this.handleNameChange = this.handleNameChange.bind(this);
+      this.handleDescChange = this.handleDescChange.bind(this);
+  }
+  onDrop(acceptedFiles, rejectedFiles) {
+    if(rejectedFiles.length == 0){
+      this.setState({fileName: acceptedFiles[0].name,
+                      file: acceptedFiles
+                    })
+    }
+  }
+
+  handleSubmitArt(e){
+    e.preventDefault();
+    putPainting(this.state.file,this.state.descText,this.state.nameText,(response)=>
+      Object.assign(this.state.fileName:response)
+    );
+  }
+
+  onResetText(e){
+    e.preventDefault();
+    this.setState({nameText:"",descText:""});
+  }
+
+  handleNameChange(event) {
+  this.setState({nameText: event.target.value});
+}
+
+  handleDescChange(event) {
+  this.setState({descText: event.target.value});
+}
+
+  render() {
+
+    return (
+      <div>
+      <div className="col-md-2"/>
+      <div className="col-md-8">
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h3 className="panel-title text-center"><b>Add a painting</b></h3>
+              </div>
+              <div className="panel-body">
+                <div className="App">
+                File Name: {this.state.fileName}
+                <Dropzone onDrop={(acceptedFiles,rejectedFiles) =>
+                    this.onDrop(acceptedFiles,rejectedFiles)} disablePreview={false}>
+                <div className="text-center">Click to browse, or drop painting here!</div>
+                </Dropzone>
+                </div>
+                <div className="media">
+                  <div className="media-left">
+                    <a href="#">
+                      <img className="media-object max-preview-size" src={this.state.file[0].preview} alt="..."/>
+                    </a>
+                  </div>
+                  <div className="media-body">
+                    <h4 className="media-heading">Painting Name</h4>
+                      <input className="input-group form-control" value={this.state.nameText} onChange={this.handleNameChange}>
+                      </input>
+                      <br/>
+                    <h4 className="media-heading">Painting Description</h4>
+                      <input className="input-group form-control" value={this.state.descText} onChange={this.handleDescChange}>
+                      </input>
+                  </div>
+                  </div>
+                  <br/>
+                  <section>
+                    <div className="btn-group btn-group-justified" role="group" aria-label="...">
+                      <div className="btn-group" role="group">
+                        <button type="button" className="btn btn-default" onClick={(e) => this.handleSubmitArt(e)}>submit</button>
+                      </div>
+                      <div className="btn-group" role="group">
+                        <button type="button" className="btn btn-default">cancel</button>
+                      </div>
+                      <div className="btn-group" role="group">
+                        <button type="button" className="btn btn-default" onClick={(e) => this.onResetText(e)}>reset text</button>
+                      </div>
+                    </div>
+
+                  </section>
+      </div>
+      </div>
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h3 className="panel-title text-center"><b>Remove a painting</b></h3>
+        </div>
+        <div className="panel-body">
+            <section>
+              <table className="table">
+                <ul className="list-group">
+                <li className="list-group-item">thing1</li>
+                <li className="list-group-item">thing1</li>
+                <li className="list-group-item">thing1</li>
+                <li className="list-group-item">thing1</li>
+                </ul>
+              </table>
+            </section>
+            <section>
+              <div className="btn-group btn-group-justified" role="group" aria-label="...">
+                <div className="btn-group" role="group">
+                  <button type="button" className="btn btn-default">submit</button>
+                </div>
+                <div className="btn-group" role="group">
+                  <button type="button" className="btn btn-default">cancel</button>
+                </div>
+                <div className="btn-group" role="group">
+                  <button type="button" className="btn btn-default" onClick={(e) => this.onResetText(e)}>reset text</button>
+                </div>
+              </div>
+            </section>
+        </div>
+        </div>
+      </div>
+      <div className="col-md-2"/>
+      </div>
+
+    )
+  }
+}
+
+export default Admin

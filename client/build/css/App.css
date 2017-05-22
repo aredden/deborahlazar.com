@@ -6,6 +6,11 @@
   height: 1000px;
 }
 
+.max-preview-size{
+  max-height: 100px;
+  max-length: 100px;
+}
+
 .slideshow-size{
     display: block;
     max-width: 300px;
