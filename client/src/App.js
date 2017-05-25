@@ -5,7 +5,9 @@ import NotFound from './NotFound.js'
 import PaintRowComponent from './PaintingArchive.js';
 import Painting from './Painting.js';
 import Events from './Events.js';
-import Admin from './Admin.js'
+import Administration from './Administration.js'
+
+
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import Modal from 'react-modal';
 const customStyles = {
@@ -130,7 +132,7 @@ closeRegisterModal(e) {
           </form>
 
             <ul className="nav navbar-nav navbar-right">
-              <li><Link to='/admin'>Admin</Link></li>
+              <li><Link to='/administration'>Admin</Link></li>
               <li><a href="#" onClick={(e) => this.openRegisterModal(e)}>Register</a></li>
               <li><a href="#" onClick={(e) => this.openLoginModal(e)}>Login</a></li>
             </ul>
@@ -147,7 +149,7 @@ const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Feed}/>
-      <Route path='/admin' component={Admin}/>
+      <Route path='/administration' component={Administration}/>
       <Route path='/archive' component={PaintRowComponent}/>
       <Route path='/painting' component={Painting}/>
       <Route path='/events' component={Events}/>

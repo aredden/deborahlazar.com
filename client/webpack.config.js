@@ -1,7 +1,11 @@
 
 var path = require('path');
+var webpack = require('webpack')
 
 module.exports = {
+  node: {
+  fs: "empty"
+},
   // The main "entry point" of your web app. WebPack will pack every module that
   // this file depends on (and its dependencies depend on).
   entry: './src/index.js',
@@ -13,6 +17,12 @@ module.exports = {
     publicPath: "/js/",
     filename: "app.js"
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
+  ],
   // Source Maps map locations in build/js/app.js back to individual application
   // modules. Chrome Developer Tools uses this so you can see your original code
   // in the development tools.

@@ -1,7 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var https = require("https");
-
+var fs = require("fs");
 var mongo_express = require("mongo-express/lib/middleware");
 var mongo_express_config = require("mongo-express/config.default.js");
 
@@ -9,9 +9,10 @@ var app = express();
 
 var MongoDB = require("mongodb");
 
+
 var MongoClient = MongoDB.MongoClient;
 var ObjectID = MongoDB.ObjectID;
-
+Grid = MongoClient.Grid;
 var url = 'mongodb://localhost:27017/dlazar-data';
 MongoClient.connect(url, function(err, db) {
 
@@ -24,10 +25,10 @@ MongoClient.connect(url, function(err, db) {
     var userid = getUserIdFromToken(req.get("Authorization"));
     name = req.params.name;
     desc = req.params.desc;
-    img = req.body;
+    img = req.body.preview;
     console.log(img);
-    res.send(JSON.stringify("ok"));
-  })
+
+})
 
 
   function sendDatabaseError(res, err) {
