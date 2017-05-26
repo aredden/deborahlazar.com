@@ -5,8 +5,8 @@ import NotFound from './NotFound.js'
 import PaintRowComponent from './PaintingArchive.js';
 import Painting from './Painting.js';
 import Events from './Events.js';
-import Administration from './Administration.js'
-
+import Administration from './Administration.js';
+import {getPaintingsList} from './Server.js';
 
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import Modal from 'react-modal';
@@ -27,11 +27,16 @@ class App extends Component {
   constructor(props) {
       super(props);
       this.state = {modalLoginIsOpen: false,
-                    modalRegisterIsOpen: false
+                    modalRegisterIsOpen: false,
+                    paintingslist: []
               }
 }
 
-
+componentDidMount(){
+  getPaintingsList((images)=>{
+    this.setState({paintingslist: images})
+  });
+}
 openLoginModal(e) {
   this.setState({modalLoginIsOpen: true});
 }
@@ -51,10 +56,9 @@ closeRegisterModal(e) {
 
 
   render() {
+    debugger;
     return (
       <div>
-
-
         <Modal
           isOpen={this.state.modalLoginIsOpen}
           contentLabel="Example Modal"
@@ -132,23 +136,23 @@ closeRegisterModal(e) {
           </form>
 
             <ul className="nav navbar-nav navbar-right">
-              <li><Link to='/administration'>Admin</Link></li>
+              <li><Link to={{pathname:'/administration',state:{paintingslist:this.state.paintingslist}}}>Admin</Link></li>
               <li><a href="#" onClick={(e) => this.openRegisterModal(e)}>Register</a></li>
               <li><a href="#" onClick={(e) => this.openLoginModal(e)}>Login</a></li>
             </ul>
           </div>
           </div>
         </nav>
-        <Main />
+        <Main {...this.state}/>
     </div>
     );
   }
 }
 
-const Main = () => (
+const Main = (state) => (
   <main>
     <Switch>
-      <Route exact path='/' component={Feed}/>
+      <Route exact path='/'  component={Feed}/>
       <Route path='/administration' component={Administration}/>
       <Route path='/archive' component={PaintRowComponent}/>
       <Route path='/painting' component={Painting}/>

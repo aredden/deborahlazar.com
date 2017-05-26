@@ -11,17 +11,14 @@ class Administration extends Component {
         file:["No Preview"],
         nameText:"",
         descText:"",
-        photoslist:[]
+        paintingslist:[]
       }
-
+      debugger;
   }
 
   componentDidMount(){
-
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDescChange = this.handleDescChange.bind(this);
-    this.getPaintings = this.getPaintings.bind(this);
-    this.getPaintings();
   }
 
 
@@ -38,13 +35,6 @@ class Administration extends Component {
     putPainting(this.state.file[0],(response)=>
       this.setState({fileName: response})
     );
-  }
-
-
-  getPaintings(){
-    getPaintingsList((images)=>{
-      this.setState({photoslist: images})
-    });
   }
 
 
@@ -120,7 +110,7 @@ class Administration extends Component {
             <section>
               <table className="table">
                   <tbody>
-                  {this.state.photoslist.map((elem, index) => {
+                  {this.props.location.state.paintingslist.map((elem, index) => {
                       return(<tr key={index}><td key={index}>{elem}<br/></td></tr>)
                       }
                     )
