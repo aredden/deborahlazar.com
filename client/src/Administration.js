@@ -13,7 +13,6 @@ class Administration extends Component {
         descText:"",
         paintingslist:[]
       }
-      debugger;
   }
 
   componentDidMount(){

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'react-bootstrap';
 import Feed from './Feed.js';
 import NotFound from './NotFound.js'
-import PaintRowComponent from './PaintingArchive.js';
+import PaintingArchive from './PaintingArchive.js';
 import Painting from './Painting.js';
 import Events from './Events.js';
 import Administration from './Administration.js';
@@ -56,7 +56,6 @@ closeRegisterModal(e) {
 
 
   render() {
-    debugger;
     return (
       <div>
         <Modal
@@ -80,7 +79,6 @@ closeRegisterModal(e) {
               </div>
             </div>
         </Modal>
-
 
         <Modal
           isOpen={this.state.modalRegisterIsOpen}
@@ -124,7 +122,7 @@ closeRegisterModal(e) {
 
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav">
-            <li><Link to="/archive">Archive <span className="sr-only"></span></Link></li>
+            <li><Link to={{pathname:'/archive',state:{paintingslist:this.state.paintingslist}}}>Archive <span className="sr-only"></span></Link></li>
             <li><Link to="/events">Events <span className="sr-only"></span></Link></li>
           </ul>
 
@@ -154,7 +152,7 @@ const Main = (state) => (
     <Switch>
       <Route exact path='/'  component={Feed}/>
       <Route path='/administration' component={Administration}/>
-      <Route path='/archive' component={PaintRowComponent}/>
+      <Route path='/archive' component={PaintingArchive}/>
       <Route path='/painting' component={Painting}/>
       <Route path='/events' component={Events}/>
       <Route path='/*' component={NotFound}/>

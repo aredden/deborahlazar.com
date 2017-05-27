@@ -11,7 +11,20 @@
   max-length: 100px;
 }
 
+.archive-max-size{
+  height: 100px;
+  width:100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.archive-max-size img{
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+}
 .slideshow-size{
+
     display: block;
     max-width: 300px;
     max-height: 300px;
