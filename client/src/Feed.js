@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'react-bootstrap';
-import Gallery from './FeedGallery2.js';
+import Gallery from './FeedGallery.js';
 
 class Feed extends Component {
   render() {

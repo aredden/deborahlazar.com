@@ -2,24 +2,11 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var https = require("https");
 var fs = require("fs");
-var mongo_express = require("mongo-express/lib/middleware");
-var mongo_express_config = require("mongo-express/config.default.js");
-
 var app = express();
-
-var MongoDB = require("mongodb");
-
-
-var MongoClient = MongoDB.MongoClient;
-var ObjectID = MongoDB.ObjectID;
-Grid = MongoClient.Grid;
-var url = 'mongodb://localhost:27017/dlazar-data';
-MongoClient.connect(url, function(err, db) {
 
   app.use(bodyParser.text());
   app.use(bodyParser.json());
   app.use(express.static("../client/build"));
-  app.use("/mongo_express", mongo_express(mongo_express_config));
 
   app.put("/addpainting/:name/:desc",function(req,res){
     var userid = getUserIdFromToken(req.get("Authorization"));
@@ -27,7 +14,6 @@ MongoClient.connect(url, function(err, db) {
     desc = req.params.desc;
     img = req.body.preview;
     console.log(img);
-
 })
 
 
@@ -61,4 +47,3 @@ MongoClient.connect(url, function(err, db) {
   app.listen(3000, function() {
   console.log("Listening on port 3000");
 })
-});
