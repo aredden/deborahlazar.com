@@ -14,7 +14,6 @@ class PaintingArchive extends Component{
 
   componentDidMount(){
 
-
   }
 
   render() {

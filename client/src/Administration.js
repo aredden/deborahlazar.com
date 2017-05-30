@@ -11,6 +11,10 @@ class Administration extends Component {
         file:["No Preview"],
         nameText:"",
         descText:"",
+        medText:"",
+        priceText:"",
+        categoryText:"",
+        dateText:"",
         paintingslist:[]
       }
   }
@@ -18,6 +22,10 @@ class Administration extends Component {
   componentDidMount(){
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDescChange = this.handleDescChange.bind(this);
+    this.handleCategoryChange = this.handleCategoryChange.bind(this);
+    this.handlePriceChange = this.handlePriceChange.bind(this);
+    this.handleMediumChange = this.handleMediumChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
   }
 
 
@@ -31,8 +39,11 @@ class Administration extends Component {
 
   handleSubmitArt(e){
     e.preventDefault();
-    putPainting(this.state.file[0],(response)=>
-      this.setState({fileName: response})
+    debugger;
+    putPainting(this.state.file[0],this.state.nameText,this.state.descText,
+      this.state.medText,this.state.priceText,this.state.categoryText,
+      this.state.dateText,this.props.location.state.paintingslist.length,
+      (response)=> this.setState({fileName: response})
     );
   }
 
@@ -44,10 +55,27 @@ class Administration extends Component {
   }
 
   handleNameChange(event) {
+    event.preventDefault();
     this.setState({nameText: event.target.value});
   }
-
+  handleDateChange(event) {
+    event.preventDefault();
+    this.setState({dateText: event.target.value});
+  }
+  handleCategoryChange(event) {
+    event.preventDefault();
+    this.setState({categoryText: event.target.value});
+  }
+  handlePriceChange(event) {
+    event.preventDefault();
+    this.setState({priceText: event.target.value});
+  }
+  handleMediumChange(event) {
+    event.preventDefault();
+    this.setState({medText: event.target.value});
+  }
   handleDescChange(event) {
+    event.preventDefault();
     this.setState({descText: event.target.value});
   }
 
@@ -81,6 +109,18 @@ class Administration extends Component {
                       <br/>
                     <h4 className="media-heading">Painting Description</h4>
                       <input  className="input-group form-control" value={this.state.descText} onChange={this.handleDescChange}>
+                      </input>
+                    <h4 className="media-heading">Date</h4>
+                      <input  className="input-group form-control" value={this.state.dateText} onChange={this.handleDateChange}>
+                      </input>
+                    <h4 className="media-heading">Painting Medium</h4>
+                      <input  className="input-group form-control" value={this.state.medText} onChange={this.handleMediumChange}>
+                      </input>
+                    <h4 className="media-heading">Category</h4>
+                      <input  className="input-group form-control" value={this.state.categoryText} onChange={this.handleCategoryChange}>
+                      </input>
+                    <h4 className="media-heading">Price</h4>
+                      <input  className="input-group form-control" value={this.state.priceText} onChange={this.handlePriceChange}>
                       </input>
                   </div>
                   </div>

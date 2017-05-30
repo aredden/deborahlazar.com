@@ -3,7 +3,7 @@ var AWS = require('aws-sdk');
 var fs = require('fs');
 AWS.config={ "accessKeyId": "AKIAJL4S44H4SUVYJDUQ", "secretAccessKey": "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", "region": "us-east-1" };
 var s3 = new AWS.S3({apiVersion: '2006-03-01'});
-var docClient = new AWS.DynamoDB.DocumentClient();
+var dynamodb = new AWS.DynamoDB({apiVersion: '2012-8-10'})
 
 export function getPaintingsList(cb){
   var bucketParams = {
@@ -75,10 +75,60 @@ function putpaintinghelper(files,painting){
   });
 }
 
-export function putPainting(painting,cb){
+function dynamoPutPainting(name,desc,med,price,category,date,painting,number){
+  debugger;
+    number = number.toString();
+    var params = {
+      Item:{
+          "id": {
+            S:number
+          },
+          "name": {
+            S:name
+          },
+          "description": {
+            S:desc
+          },
+          "category": {
+            S:category
+          },
+          "medium": {
+            S:med
+          },
+          "date": {
+            S:date
+          },
+          "filename": {
+            S:painting.name
+          },
+          "sold": {
+            BOOL: false,
+          },
+          "price": {
+            N: price.toString()
+          }
+        },
+      ReturnConsumedCapacity:"TOTAL",
+      TableName:"paintings"
+    }
+    dynamodb.putItem(params, function(err, data) {
+        if (err) {
+            console.log(err)
+            return alert('There was an error uploading your photo data: ', JSON.stringify(err));
+
+        } else {
+            alert('Successfully uploaded photo data.');
+        }
+    });
+}
+
+export function putPainting(painting,name,desc,med,price,category,date,number,cb){
+  debugger;
 var preview = document.querySelector('img');
 var file    = document.querySelector('input[type=file]').files[0];
 var reader  = new FileReader();
+
+  dynamoPutPainting(name,desc,med,price,category,date,painting,number);
 
   reader.addEventListener("load", function () {
     preview.src = reader.result;
