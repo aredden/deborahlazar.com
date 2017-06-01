@@ -141,23 +141,36 @@ closeRegisterModal(e) {
           </div>
           </div>
         </nav>
-        <Main {...this.state}/>
+        {
+          <main>
+            <Switch>
+              <Route exact path='/' render={
+                  () => <Feed images={this.state.paintingslist}/>
+                }/>
+              <Route path='/administration' component={Administration}/>
+              <Route path='/archive' component={PaintingArchive}/>
+              <Route path='/painting' component={Painting}/>
+              <Route path='/events' component={Events}/>
+              <Route path='/*' component={NotFound}/>
+            </Switch>
+          </main>
+        }
     </div>
     );
   }
 }
 
-const Main = (state) => (
-  <main>
-    <Switch>
-      <Route exact path='/'  component={Feed}/>
-      <Route path='/administration' component={Administration}/>
-      <Route path='/archive' component={PaintingArchive}/>
-      <Route path='/painting' component={Painting}/>
-      <Route path='/events' component={Events}/>
-      <Route path='/*' component={NotFound}/>
-    </Switch>
-  </main>
-)
+// const Main = () => (
+//   <main>
+//     <Switch>
+//       <Route exact path='/' component={Feed}/>
+//       <Route path='/administration' component={Administration}/>
+//       <Route path='/archive' component={PaintingArchive}/>
+//       <Route path='/painting' component={Painting}/>
+//       <Route path='/events' component={Events}/>
+//       <Route path='/*' component={NotFound}/>
+//     </Switch>
+//   </main>
+// )
 
 export default App;

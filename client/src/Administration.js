@@ -47,8 +47,6 @@ class Administration extends Component {
     );
   }
 
-
-
   onResetText(e){
     e.preventDefault();
     this.setState({nameText:"",descText:""});

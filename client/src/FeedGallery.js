@@ -2,27 +2,80 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 
 class Gallery extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {paintings:this.props.images}
+}
 
   render() {
     const settings = {
-      autoPlay: true,
-      arrows: true,
-      dots: true,
       infinite: true,
-      speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 3,
-      centerMode: true
+      centerMode: true,
+      responsive:[
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          },
+        },
+        {
+          breakpoint: 900,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          },
+        },
+        {
+          breakpoint: 1200,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          },
+        },{
+          breakpoint: 1500,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4
+          },
+        },{
+          breakpoint: 1800,
+          settings: {
+            slidesToShow: 5,
+            slidesToScroll: 5
+          },
+        },
+        {
+          breakpoint: 2100,
+          settings: {
+            slidesToShow: 6,
+            slidesToScroll: 6
+          },
+        },
+        {
+          breakpoint: 10000,
+          settings: {
+            slidesToShow: 7,
+            slidesToScroll: 7
+          },
+        }
+      ]
     };
+    debugger;
+    var paintings = this.props.images;
+    if(paintings.length==0){
+      return(<div></div>)
+    }else{
     return (
       <Slider {...settings}>
-        <div><img src="img/01-02-16SilverCoffeePot_9206-1000.jpg" className="slideshow-size" /></div>
-        <div><img src="img/rainbows-02-1000_1105.jpg" className="slideshow-size"/></div>
-        <div><img src="img/07-6-16-hotRocks2054-1000.jpg" className="slideshow-size"/></div>
-        <div><img src="img/09-22-16-6Peppers_2723-1000.jpg" className="slideshow-size"/></div>
-        <div><img src="img/07-14-16Quarry-9x12_1710-1000.jpg" className="slideshow-size"/></div>
+        {paintings.map((image, index) => {
+          return(
+            <div><img key={index} src={image} className="slideshow-size" /></div>
+          )
+        })}
       </Slider>
     );
+  }
 }
 }
 export default Gallery

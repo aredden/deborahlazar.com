@@ -17,7 +17,7 @@ class Feed extends Component {
           </div>
         </section>
         <section>
-          <Gallery/>
+          <Gallery images={this.props.images}/>
         </section>
         <br/>
         <br/>
