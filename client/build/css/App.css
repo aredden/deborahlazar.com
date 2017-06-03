@@ -45,7 +45,10 @@
   padding-bottom:30px;
 }
 
-.body-padding { padding-top: 50px; }
+.body-padding {
+
+  height: 60vh;
+}
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;

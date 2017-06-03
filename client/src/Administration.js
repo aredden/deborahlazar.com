@@ -39,7 +39,6 @@ class Administration extends Component {
 
   handleSubmitArt(e){
     e.preventDefault();
-    debugger;
     putPainting(this.state.file[0],this.state.nameText,this.state.descText,
       this.state.medText,this.state.priceText,this.state.categoryText,
       this.state.dateText,this.props.location.state.paintingslist.length,
@@ -135,7 +134,6 @@ class Administration extends Component {
                         <button type="button" className="btn btn-default" onClick={(e) => this.onResetText(e)}>reset text</button>
                       </div>
                     </div>
-
                   </section>
       </div>
       </div>
@@ -149,8 +147,7 @@ class Administration extends Component {
                   <tbody>
                   {this.props.location.state.paintingslist.map((elem, index) => {
                       return(<tr key={index}><td key={index}>{elem}<br/></td></tr>)
-                      }
-                    )
+                      })
                   }
                   </tbody>
               </table>

@@ -1,0 +1,15 @@
+.backgroundimg-custom {
+background-image: url(../assets/images/jumbotron.jpg);
+}
+
+.sectioncolor-custom {
+background-color: rgb(46, 46, 46);
+padding-top: 90px;
+padding-bottom: 90px;
+}
+
+.footercolor-custom {
+background-color: rgb(50, 50, 50);
+padding-top: 1.75rem;
+padding-bottom: 1.75rem;
+}

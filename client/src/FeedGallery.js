@@ -61,7 +61,6 @@ class Gallery extends Component {
         }
       ]
     };
-    debugger;
     var paintings = this.props.images;
     if(paintings.length==0){
       return(<div></div>)
