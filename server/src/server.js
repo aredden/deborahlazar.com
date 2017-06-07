@@ -8,41 +8,9 @@ var app = express();
   app.use(bodyParser.json());
   app.use(express.static("../client/build"));
 
-  app.put("/addpainting/:name/:desc",function(req,res){
-    var userid = getUserIdFromToken(req.get("Authorization"));
-    name = req.params.name;
-    desc = req.params.desc;
-    img = req.body.preview;
-    console.log(img);
-})
-
-
   function sendDatabaseError(res, err) {
     res.status(500).send("A database error occurred: " + err);
   }
-
-
-  function getUserIdFromToken(authorizationLine) {
-     try {
-       // Cut off "Bearer " from the header value.
-       var token = authorizationLine.slice(7);
-       // Convert the base64 string to a UTF-8 string.
-       var regularString = new Buffer(token, "base64").toString("utf8");
-       // Convert the UTF-8 string into a JavaScript object.
-       var tokenObj = JSON.parse(regularString);
-       var id = tokenObj["id"];
-       // Check that id is a string.
-       if (typeof id === "string") {
-         return id;
-       } else {
-         // Not a number. Return "", an invalid ID.
-         return "";
-       }
-     } catch (e) {
-       // Return an invalid ID.
-       return -1;
-     }
-   }
 
   app.listen(3000, function() {
   console.log("Listening on port 3000");

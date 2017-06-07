@@ -5,8 +5,11 @@ import NotFound from './NotFound.js'
 import PaintingArchive from './PaintingArchive.js';
 import Painting from './Painting.js';
 import Events from './Events.js';
+import Blog from './Blog.js'
+import Register from './Register.js';
+import Login from './Login.js';
 import Administration from './Administration.js';
-import {getPaintingsList} from './Server.js';
+import {getPaintingsList} from './server/Server.js';
 
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import Modal from 'react-modal';
@@ -67,8 +70,8 @@ closeRegisterModal(e) {
                 <div className="mbr-table-cell">
 
                     <div className="navbar-brand">
-                        <a href="https://mobirise.com" className="navbar-logo"><img src="assets/images/mbr-192x128.jpg" alt="Mobirise"/></a>
-                        <a className="navbar-caption" href="https://mobirise.com">DLPaintorama</a>
+                        <a href="#" className="navbar-logo"><img src="assets/images/mbr-192x128.jpg" alt="Mobirise"/></a>
+                        <a className="navbar-caption" href="#">DLPaintorama</a>
                     </div>
 
                 </div>
@@ -80,38 +83,45 @@ closeRegisterModal(e) {
 
                     <ul className="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar">
                       <li className="nav-item">
-                        <a className="nav-link link" href="https://mobirise.com/">OVERVIEW</a></li>
+                        <Link className="nav-link link" to={{pathname:'/archive',state:{paintingslist:this.state.paintingslist}}}>ARCHIVE</Link>
+                      </li>
                       <li className="nav-item dropdown">
-                        <a className="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="https://mobirise.com/" aria-expanded="false">FEATURES</a>
+                        <a className="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="#" aria-expanded="false">EVENTS</a>
                       <div className="dropdown-menu">
-                      <a className="dropdown-item" href="https://mobirise.com/">Mobile friendly</a>
-                      <a className="dropdown-item" href="https://mobirise.com/">Based on Bootstrap</a>
+                      <a className="dropdown-item" href="#">Mobile friendly</a>
+                      <a className="dropdown-item" href="#">Based on Bootstrap</a>
                       <div className="dropdown">
-                        <a className="dropdown-item dropdown-toggle" data-toggle="dropdown-submenu" href="https://mobirise.com/">Trendy blocks</a>
+                        <a className="dropdown-item dropdown-toggle" data-toggle="dropdown-submenu" href="#">Trendy blocks</a>
                         <div className="dropdown-menu dropdown-submenu">
-                          <a className="dropdown-item" href="https://mobirise.com/">Image/content slider</a>
-                          <a className="dropdown-item" href="https://mobirise.com/">Contact forms</a>
-                          <a className="dropdown-item" href="https://mobirise.com/">Image gallery</a>
-                          <a className="dropdown-item" href="https://mobirise.com/">Mobile menu</a>
-                          <a className="dropdown-item" href="https://mobirise.com/">Google maps</a>
-                          <a className="dropdown-item" href="https://mobirise.com/">Social buttons</a>
-                          <a className="dropdown-item" href="https://mobirise.com/">Google fonts</a>
-                          <a className="dropdown-item" href="https://mobirise.com/">Video background</a>
+                          <a className="dropdown-item" href="#">Image/content slider</a>
+                          <a className="dropdown-item" href="#">Contact forms</a>
+                          <a className="dropdown-item" href="#">Image gallery</a>
+                          <a className="dropdown-item" href="#">Mobile menu</a>
+                          <a className="dropdown-item" href="#">Google maps</a>
+                          <a className="dropdown-item" href="#">Social buttons</a>
+                          <a className="dropdown-item" href="#">Google fonts</a>
+                          <a className="dropdown-item" href="#">Video background</a>
                         </div>
                       </div>
-                        <a className="dropdown-item" href="https://mobirise.com/">Host anywhere</a>
+                        <a className="dropdown-item" href="#">Host anywhere</a>
                       </div>
                     </li>
                     <li className="nav-item dropdown">
-                      <a className="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="https://mobirise.com/">HELP</a>
+                      <a className="nav-link link dropdown-toggle" data-toggle="dropdown-submenu" href="#">DASHBOARD</a>
                       <div className="dropdown-menu">
-                        <a className="dropdown-item" href="http://forums.mobirise.com/">Forum</a>
-                      <a className="dropdown-item" href="https://mobirise.com/">Tutorials</a>
-                      <a className="dropdown-item" href="https://mobirise.com/">Contact us</a>
-                    </div></li>
+                        <a className="dropdown-item" href="#">Orders</a>
+                        <a className="dropdown-item" href="#">Comments</a>
+                      </div>
+                    </li>
                     <li className="nav-item nav-btn">
-                    <a className="nav-link btn btn-white btn-white-outline" href="https://mobirise.com/">DOWNLOAD</a>
-                  </li>
+                      <Link to="/blog" className="nav-link btn btn-white btn-white-outline">BLOG</Link>
+                    </li>
+                    <li className="nav-item nav-btn">
+                      <Link to="/login" className="nav-link btn btn-white btn-white-outline">LOGIN</Link>
+                    </li>
+                    <li className="nav-item nav-btn">
+                      <Link to="/register" className="nav-link btn btn-white btn-white-outline">REGISTER</Link>
+                    </li>
                 </ul>
                     <button hidden="" className="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                         <div className="close-icon"></div>
@@ -131,6 +141,9 @@ closeRegisterModal(e) {
                 }/>
               <Route path='/administration' component={Administration}/>
               <Route path='/archive' component={PaintingArchive}/>
+              <Route path='/register' component={Register}/>
+              <Route path='/login' component={Login}/>
+              <Route path='/blog' component={Blog}/>
               <Route path='/painting' component={Painting}/>
               <Route path='/events' component={Events}/>
               <Route path='/*' component={NotFound}/>

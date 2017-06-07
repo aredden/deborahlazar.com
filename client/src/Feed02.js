@@ -7,7 +7,7 @@ class Feed extends Component {
     return (
       <div>
         <section className="engine">
-          <a rel="external" href="https://mobirise.com">mobirise.com</a>
+          <a rel="external" href="#">mobirise.com</a>
         </section>
         <section className="mbr-section mbr-section-hero mbr-section-full mbr-parallax-background mbr-section-with-arrow backgroundimg-custom" id="header1-1">
             <div className="mbr-table-cell">
@@ -16,15 +16,11 @@ class Feed extends Component {
                         <div className="mbr-section col-md-10 col-md-offset-1 text-xs-center">
                             <h1 className="mbr-section-title display-1">Deborah Lazar's<br/>Art Gallery</h1>
                             <p className="mbr-section-lead lead">
-                              Click any text to edit or style it.
-                              Click blue "Gear" icon in the top right corner to hide/show buttons,
-                              text, title and change the block background. <br/> Click red "+" in the bottom
-                              right corner to add a new block. Use the top left menu to create new pages,
-                              sites and add extensions.
+                              Pleinair art from southern Vermont
                             </p>
                             <div className="mbr-section-btn">
-                              <a className="btn btn-lg btn-primary" href="https://mobirise.com">CLICK TO EDIT</a>
-                              <a className="btn btn-lg btn-white btn-white-outline" href="https://mobirise.com">CLICK TO EDIT</a></div>
+                              <a className="btn btn-lg btn-primary" href="#">BUY ART</a>
+                              <a className="btn btn-lg btn-white btn-white-outline" href="#">MORE INFO</a></div>
                         </div>
                     </div>
                 </div>
@@ -49,13 +45,13 @@ class Feed extends Component {
                     </div>
                     <div className="mbr-footer-content col-xs-12 col-md-3"><p className="mbr-contacts__text">
                       <strong>Links</strong></p><ul><li>
-                        <a className="text-white" href="https://mobirise.com/">Website builder</a></li><li>
-                          <a className="text-white" href="https://mobirise.com/mobirise-free-win.zip">Download for Windows</a></li>
+                        <a className="text-white" href="#/">Facebook Page</a></li><li>
+                          <a className="text-white" href="#/mobirise-free-win.zip">Instagram</a></li>
                           <li>
-                          <a className="text-white" href="https://mobirise.com/mobirise-free-mac.zip">Download for Mac</a></li></ul></div>
+                          <a className="text-white" href="#/mobirise-free-mac.zip">Twitter</a></li></ul></div>
                     <div className="col-xs-12 col-md-6">
                         <div className="mbr-map">
-                        <iframe frameBorder="0" style={{border:0}} src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0Dx_boXQiwvdz8sJHoYeZNVTdoWONYkU&amp;q=place_id:ChIJn6wOs6lZwokRLKy1iqRcoKw" allowFullScreen="">
+                        <iframe frameBorder="0" style={{border:0}} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1735.905071085321!2d-72.52447923004841!3d42.969157945576114!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e105ffad484ecd%3A0x10c90a3fc1755eab!2s52+Old+Rte+5%2C+Putney%2C+VT+05346!5e0!3m2!1sen!2sus!4v1496673450468" allowFullScreen="">
                         </iframe>
                       </div>
                     </div>

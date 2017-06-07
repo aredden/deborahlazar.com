@@ -13,3 +13,52 @@ background-color: rgb(50, 50, 50);
 padding-top: 1.75rem;
 padding-bottom: 1.75rem;
 }
+
+.register-footer-custom{
+  background-color: rgb(50, 50, 50);
+   padding-top: 3.5rem;
+   padding-bottom: 3.5rem;
+}
+
+.register-after-navbar{
+  background-color: rgb(255, 255, 255);
+  padding-top: 160px;
+  padding-bottom: 160px;
+}
+
+.blog-overlay-custom{
+  opacity: 0.5;
+  background-color:
+  rgb(34, 34, 34);
+}
+
+.blog-article-container-custom{
+  background-color:
+  rgb(255, 255, 255);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.blog-content-custom{
+  background-color: rgb(255, 255, 255);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.blog-section-container-custom{
+  background-color: rgb(255, 255, 255);
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.blog-footer-color{
+  background-color: rgb(50, 50, 50);
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.blog-background{
+  background-image: url(../assets/images/desert.jpg);
+  padding-top: 120px;
+  padding-bottom: 120px;
+}

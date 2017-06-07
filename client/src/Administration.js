@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'react-bootstrap';
 import Dropzone from 'react-dropzone';
-import { putPainting, getPaintingsList}from './Server.js';
+import { putPainting, getPaintingsList}from './server/Server.js';
 
 class Administration extends Component {
   constructor(props) {

@@ -19,7 +19,7 @@ class PaintingArchive extends Component{
   render() {
     return (
       <div>
-      <section className="jumbotron text-center ">
+      <section className="jumbotron text-center archive-body-padding">
           <div className="container body-padding">
             <h1 className="jumbotron-heading">Art Archive</h1>
             <p className="lead text-muted">Southern Vermont pleinair paintings</p>
@@ -34,9 +34,9 @@ class PaintingArchive extends Component{
       <div id="links" >
         {this.props.location.state.paintingslist.map((elem,index)=> {
           return(
-            <a href={elem} title={elem} className="archive-max-size">
+            <Link to={{pathname:'/painting',state:{displayPainting:elem}}} href={elem} title={elem} className="archive-max-size">
                 <img src={elem} alt="Banana"/>
-            </a>
+            </Link>
           )
         })}
       </div>

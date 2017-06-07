@@ -6,6 +6,10 @@
   height: 1000px;
 }
 
+.painting-margin-top{
+  margin-top: 100px;
+}
+
 .max-preview-size{
   max-height: 100px;
   max-length: 100px;
@@ -45,8 +49,12 @@
   padding-bottom:30px;
 }
 
-.body-padding {
+.archive-body-padding{
+  margin-top:58px;
+  height:40vh;
+}
 
+.body-padding {
   height: 60vh;
 }
 
