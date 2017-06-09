@@ -12,7 +12,7 @@ class Login extends Component{
         <div className="container">
             <div className="row">
                 <div className="col-xs-12 text-xs-center">
-                    <h3 className="mbr-section-title display-2">Login</h3>
+                    <h3 className="mbr-section-title display-2">LOGIN</h3>
                     <small className="mbr-section-subtitle">comment on art, buy art, view orders, sign up for events...</small>
                 </div>
             </div>

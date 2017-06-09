@@ -5,7 +5,6 @@ import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 
 class Painting extends Component {
   render() {
-    debugger;
     return (
       <div className="container body-padding painting-margin-top">
       <div className="row">
