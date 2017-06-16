@@ -10,6 +10,7 @@ import Register from './Register.js';
 import Login from './Login.js';
 import Administration from './Administration.js';
 import {getPaintingsList} from './server/Server.js';
+import AuthenticateUser from './AuthenticateUser.js'
 
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import Modal from 'react-modal';
@@ -146,6 +147,7 @@ closeRegisterModal(e) {
               <Route path='/blog' component={Blog}/>
               <Route path='/painting' component={Painting}/>
               <Route path='/events' component={Events}/>
+              <Route path='/authenticate' component={AuthenticateUser}/>
               <Route path='/*' component={NotFound}/>
             </Switch>
           </main>

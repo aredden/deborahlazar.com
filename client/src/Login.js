@@ -1,7 +1,33 @@
 import React, { Component } from 'react';
 import 'react-bootstrap';
-
+import {loginUser} from './server/Server.js'
 class Login extends Component{
+  constructor(props) {
+      super(props);
+      this.state={
+        email:"",
+        pass:"",
+        resp:""
+      }
+      this.handleEmailChange = this.handleEmailChange.bind(this);
+      this.handlePassChange = this.handlePassChange.bind(this);
+  }
+
+  handleLoginUser(e){
+    e.preventDefault();
+    loginUser(this.state.email,this.state.pass,
+    (response)=>this.setState({resp:response}))
+  }
+
+  handleEmailChange(event) {
+    event.preventDefault();
+    this.setState({email: event.target.value});
+  }
+  handlePassChange(event) {
+    event.preventDefault();
+    this.setState({Pass: event.target.value});
+  }
+
   render() {
     return (
       <div>
@@ -29,18 +55,18 @@ class Login extends Component{
                             <div className="col-xs-12 col-md-4">
                                 <div className="form-group">
                                     <label className="form-control-label">Email<span className="form-asterisk">*</span></label>
-                                    <input type="email" className="form-control" name="email" required="" data-form-field="Email" id="form1-4-email"/>
+                                    <input className="form-control" value={this.state.email} onChange={this.handleEmailChange}/>
                                 </div>
                             </div>
                             <div className="col-xs-12 col-md-4">
                                 <div className="form-group">
                                     <label className="form-control-label">Password<span className="form-asterisk">*</span></label>
-                                    <input type="password" className="form-control" name="password" required="" data-form-field="Password" id="form1-4-email"/>
+                                    <input className="form-control" value={this.state.pass} onChange={this.handlePassChange}/>
                                 </div>
                             </div>
 
                         </div>
-                        <div><button type="submit" className="btn btn-primary">LOGIN</button></div>
+                        <div><button type="submit" className="btn btn-primary" onClick={(e) => this.handleLoginUser(e)}>LOGIN</button></div>
 
                     </form>
                 </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import 'react-bootstrap';
 import {putNewUser} from './server/Server.js'
-
+import AuthenticateUser from './AuthenticateUser.js'
 class Register extends Component{
   constructor(props) {
       super(props);
@@ -66,6 +66,7 @@ class Register extends Component{
 
   render() {
     debugger;
+    if(this.state.resp===""){
     return (
       <div>
       <section className="engine"><a rel="external" href="#">Mobirise</a></section>
@@ -149,6 +150,13 @@ class Register extends Component{
 </footer>
 </div>
     );
+    }else{
+      return(
+        <div>
+        <AuthenticateUser/>
+        </div>
+      )
+    }
   }
 }
 
