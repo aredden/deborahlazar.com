@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import 'react-bootstrap';
 import {loginUser} from './server/Server.js'
 class Login extends Component{
@@ -7,7 +8,8 @@ class Login extends Component{
       this.state={
         email:"",
         pass:"",
-        resp:""
+        resp:"",
+        authText:""
       }
       this.handleEmailChange = this.handleEmailChange.bind(this);
       this.handlePassChange = this.handlePassChange.bind(this);
@@ -25,10 +27,15 @@ class Login extends Component{
   }
   handlePassChange(event) {
     event.preventDefault();
-    this.setState({Pass: event.target.value});
+    this.setState({pass: event.target.value});
   }
 
   render() {
+    if(this.state.resp!==""){
+      if(this.state.resp.code=="UserNotConfirmedException"){
+        authText="User is not confirmed"
+      }
+    }
     return (
       <div>
       <section className="engine"><a rel="external" href="#">Mobirise</a></section>
@@ -46,6 +53,7 @@ class Login extends Component{
     </div>
     <div className="mbr-section mbr-section-nopadding">
         <div className="container">
+        <Link to="/authenticate" className="btn btn-white btn-white-outline">Authenticate User</Link>
             <div className="row">
                 <div className="col-xs-12 col-lg-10 col-lg-offset-1" data-form-type="formoid">
 

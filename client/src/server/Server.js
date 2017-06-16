@@ -6,10 +6,9 @@ var s3 = new AWS.S3({apiVersion: '2006-03-01'});
 var dynamodb = new AWS.DynamoDB({apiVersion: '2012-8-10'})
 import {getPaintings} from './getpaintings.js';
 import {putpainting} from './putpainting.js';
-import {putnewuser} from './putnewuser.js';
-import {loginuser} from './loginuser.js';
+import {loginuser} from './cognito-signup.js';
 import {signUpNewUser} from './cognito-signup.js';
-
+import {authenticateUser} from './cognito-signup.js';
 export function getPaintingsList(cb){
   getPaintings(cb,s3)
 }
@@ -28,10 +27,10 @@ export function putNewUser(fname,lname,email,email2,phone,pass,pass2){
   signUpNewUser(fname,lname,email,phone,pass);
 }
 
-export function loginUser(user,pass){
-  loginuser(user,pass,dynamodb);
+export function loginUser(user,pass,cb){
+  loginuser(user,pass,AWS,cb);
 }
 
 export function authenticate(user,code){
-
+  authenticateUser(user,code);
 }

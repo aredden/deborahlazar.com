@@ -11,7 +11,7 @@ class AuthenticateUser extends Component{
         resp:""
       }
       this.handleEmailChange = this.handleEmailChange.bind(this);
-      this.handlePhoneChange = this.handleCodeChange.bind(this);
+      this.handleCodeChange = this.handleCodeChange.bind(this);
   }
 
   componentDidMount(){
@@ -20,7 +20,8 @@ class AuthenticateUser extends Component{
 
   handleAuthenticate(e){
     e.preventDefault();
-    putNewUser(this.state.email,this.state.code,
+    debugger;
+    authenticate(this.state.email,this.state.code,
     (response)=>this.setState({resp:response}))
   }
 
@@ -55,7 +56,6 @@ class AuthenticateUser extends Component{
         <div className="container">
             <div className="row">
                 <div className="col-xs-12 col-lg-10 col-lg-offset-1" data-form-type="formoid">
-
                     <form action="#" data-form-title="CONTACT FORM">
                         <div className="row row-sm-offset">
                             <div className="col-xs-12 col-md-4">
