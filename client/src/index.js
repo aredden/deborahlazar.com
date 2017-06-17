@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App02';
+import Nav from './Nav.js';
 import { HashRouter } from 'react-router-dom';
 
 
 ReactDOM.render(
   <HashRouter>
-  <App />
+  <Nav />
   </HashRouter>,
   document.getElementById('root')
 );

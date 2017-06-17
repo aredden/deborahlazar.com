@@ -18,7 +18,7 @@ class Login extends Component{
   handleLoginUser(e){
     e.preventDefault();
     loginUser(this.state.email,this.state.pass,
-    (response)=>this.setState({resp:response}))
+    (text,resp)=>this.setState({resp:[text,resp]}))
   }
 
   handleEmailChange(event) {
@@ -36,6 +36,7 @@ class Login extends Component{
         authText="User is not confirmed"
       }
     }
+    debugger;
     return (
       <div>
       <section className="engine"><a rel="external" href="#">Mobirise</a></section>

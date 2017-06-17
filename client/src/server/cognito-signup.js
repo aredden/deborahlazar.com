@@ -114,13 +114,15 @@ cognitoUser.authenticateUser(authenticationDetails, {
             }
         });
 
+        cb("logged-in",result);
+
         // Instantiate aws sdk service objects now that the credentials have been updated.
         // example: var s3 = new AWS.S3();
 
     },
 
     onFailure: function(err) {
-        cb(err);
+        cb("login-error",err);
     },
 
 });
