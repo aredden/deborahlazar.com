@@ -13,6 +13,9 @@
   "author": "Alexander Redden",
   "license": "UNLICENSED",
   "dependencies": {
+    "amazon-cognito-identity-js": "^1.19.0",
+    "aws-sdk": "^2.72.0",
+    "babel-preset-es2015": "^6.24.1",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "fs": "0.0.1-security"
