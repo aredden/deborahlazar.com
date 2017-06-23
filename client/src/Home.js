@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'react-bootstrap';
 import Gallery from './HomeGallery.js';
+import {Link} from 'react-router-dom';
 
 class Home extends Component {
   render() {
@@ -19,7 +20,7 @@ class Home extends Component {
                               Pleinair art from southern Vermont
                             </p>
                             <div className="mbr-section-btn">
-                              <a className="btn btn-lg btn-primary" href="#">BUY ART</a>
+                              <Link to='/archive' className="btn btn-lg btn-primary">BUY ART</Link>
                               <a className="btn btn-lg btn-white btn-white-outline" href="#">MORE INFO</a></div>
                         </div>
                     </div>

@@ -45,7 +45,7 @@ var cognito = require('./cognito-signup.js');
   app.put("/login/", function(req,res){
     var info = req.body;
     cognito.loginuser(info.user,info.pass,AWS,
-      (outcome)=>{res.send(outcome)}
+      (outcome,response,name)=>{res.send([outcome,response,name])}
     )
     }
   )

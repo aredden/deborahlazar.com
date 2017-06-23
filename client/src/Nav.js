@@ -141,7 +141,9 @@ closeRegisterModal(e) {
                   () => <Home images={this.state.paintingslist}/>
                 }/>
               <Route path='/administration' component={Administration}/>
-              <Route path='/archive' component={PaintingArchive}/>
+              <Route path='/archive' render={
+                  () => <PaintingArchive paintingslist={this.state.paintingslist}/>
+                }/>
               <Route path='/register' component={Register}/>
               <Route path='/login' component={Login}/>
               <Route path='/blog' component={Blog}/>

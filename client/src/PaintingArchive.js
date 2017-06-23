@@ -13,26 +13,33 @@ class PaintingArchive extends Component{
   }
 
   componentDidMount(){
-
+    if(this.props.paintingslist){
+      this.setState({paintings:this.props.paintingslist})
+    }else{
+      if(this.props.location.state.paintingslist){
+        this.setState({paintings:this.props.location.state.paintings})
+      }
+    }
   }
 
   render() {
+
     return (
       <div>
       <section className="jumbotron text-center archive-body-padding">
           <div className="container body-padding">
             <h1 className="jumbotron-heading">Art Archive</h1>
-            <p className="lead text-muted">Southern Vermont pleinair paintings</p>
+            <p className="lead text-muted">To buy art, look closer or comment on a painting: click on one of the thumbnail images.
+            </p>
             <p>
-              <a href="#" className="btn btn-primary">Buy art</a>
-              <a href="#" className="btn btn-secondary">Learn more</a>
+              <a href="#" className="btn btn-primary">Learn more</a>
             </p>
           </div>
       </section>
       <div className="col-md-2"/>
       <div className="col-md-8">
       <div id="links" >
-        {this.props.location.state.paintingslist.map((elem,index)=> {
+        {this.state.paintings.map((elem,index)=> {
           return(
             <Link to={{pathname:'/painting',state:{displayPainting:elem}}} href={elem} title={elem} key={index} className="archive-max-size">
                 <img key={index} src={elem} alt="Banana"/>

@@ -103,16 +103,25 @@ module.exports ={
                   'cognito-idp.us-east-1.amazonaws.com/us-east-1_TzXRc5peD' : result.getIdToken().getJwtToken()
               }
           });
+          cognitoUser.getUserAttributes(function(err, res) {
+              if (err) {
+                  alert(err);
+                  return;
+              }
+              for (i = 0; i < result.length; i++) {
+                  console.log('attribute ' + res[i].getName() + ' has value ' + res[i].getValue());
 
-          cb("logged-in",result);
-
+              }
+              var displayName = res[2].getValue()+" "+res[5].getValue()
+              cb("logged-in",result,displayName);
+          });
           // Instantiate aws sdk service objects now that the credentials have been updated.
           // example: var s3 = new AWS.S3();
 
       },
 
       onFailure: function(err) {
-          cb("login-error",err);
+          cb("login-error",err,"Not Authenticated");
       },
 
   });
