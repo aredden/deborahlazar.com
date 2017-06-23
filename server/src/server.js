@@ -11,12 +11,7 @@ var s3 = new AWS.S3({apiVersion: '2006-03-01'});
 var dynamodb = new AWS.DynamoDB({apiVersion: '2012-8-10'})
 var GetPaintings = require('./getpaintings.js');
 var putpainting = require('./putpainting.js');
-
-// import {getPaintings} from './getpaintings.js';
-// import {putpainting} from './putpainting.js';
-// import {loginuser} from './cognito-signup.js';
-// import {signUpNewUser} from './cognito-signup.js';
-// import {authenticateUser} from './cognito-signup.js';
+var cognito = require('./cognito-signup.js');
 
 
   app.use(bodyParser.text());
@@ -27,6 +22,19 @@ var putpainting = require('./putpainting.js');
     res.status(500).send("A database error occurred: " + err);
   }
 
+  app.put("/newuser/",function(req,res){
+    var info = req.body;
+    cognito.signUpNewUser(info.fname,info.lname,info.email,info.phone,info.pass,
+      (outcome)=>{res.send(outcome)}
+    )
+  });
+
+  app.post("/authenticate/"),function(req,res){
+    var info = req.body;
+    cognito.authenticateUser(info.user,info.code,(result)=>{
+       res.send(result);
+    })
+  }
 
   app.get("/paintings/", function(req,res){
     GetPaintings.getPaintings(
@@ -34,6 +42,13 @@ var putpainting = require('./putpainting.js');
       ,s3);
   });
 
+  app.put("/login/", function(req,res){
+    var info = req.body;
+    cognito.loginuser(info.user,info.pass,AWS,
+      (outcome)=>{res.send(outcome)}
+    )
+    }
+  )
 
   app.listen(3000, function() {
   console.log("Listening on port 3000");

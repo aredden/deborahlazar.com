@@ -1,25 +1,43 @@
 
-// export function putPainting(painting,name,desc,med,price,category,date,number,cb){
-//   putpainting(painting,name,desc,med,price,category,date,number,cb,s3,dynamodb,fs);
-// }
-//
-// export function putNewUser(fname,lname,email,email2,phone,pass,pass2){
-//   if(pass!=pass2){
-//     return alert('passwords do not match!');
-//   }
-//   if(email!=email2){
-//     return alert('emails do not match!');
-//   }
-//   signUpNewUser(fname,lname,email,phone,pass);
-// }
-//
-// export function loginUser(user,pass,cb){
-//   loginuser(user,pass,AWS,cb);
-// }
-//
-// export function authenticate(user,code){
-//   authenticateUser(user,code);
-// }
+export function putNewUser(fname,lname,email,email2,phone,pass,pass2){
+  if(pass!=pass2){
+    return alert('passwords do not match!');
+  }
+  if(email!=email2){
+    return alert('emails do not match!');
+  }
+  body = {
+    "fname":fname,
+    "lname":lname,
+    "email":email,
+    "phone":phone,
+    "pass":pass
+  }
+  sendXHR("PUT","/newuser/",body,(xhr) =>{
+    cb(JSON.parse(xhr.responseText))
+  });
+}
+
+
+export function authenticate(user,code,cb){
+  var body = {
+    "user":user,
+    "code":code
+  }
+  sendXHR("POST","/authenticate/",body,(xhr) =>{
+    cb(JSON.parse(xhr.responseText))
+  });
+}
+
+export function loginUser(user,pass,cb){
+  var body = {
+    "user":user,
+    "pass":pass
+  }
+  sendXHR("PUT","/login/",body,(xhr) =>{
+    cb(JSON.parse(xhr.responseText))
+  });
+}
 
 
 export function getPaintingsList(cb) {
