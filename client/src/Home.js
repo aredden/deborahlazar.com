@@ -8,18 +8,16 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state={
-
+      user:""
     }
   }
 
   componentDidMount(){
-    debugger;
-    if(this.state.user){
-      setUser(this.state.user);
-    }
+
   }
 
   render() {
+    debugger;
     return (
       <div>
         <section className="engine">

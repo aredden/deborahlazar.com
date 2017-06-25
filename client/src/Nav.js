@@ -6,12 +6,12 @@ import PaintingArchive from './PaintingArchive.js';
 import Painting from './Painting.js';
 import Events from './Events.js';
 import Blog from './Blog.js'
+import Administration from './Administration.js';
 import Register from './Register.js';
 import Login from './Login.js';
-import Administration from './Administration.js';
 import {getPaintingsList} from './server/Server.js';
-import AuthenticateUser from './AuthenticateUser.js'
-
+import AuthenticateUser from './AuthenticateUser.js';
+import NavUser from './NavUser.js';
 import { HashRouter, Switch, Route, Link } from 'react-router-dom';
 import Modal from 'react-modal';
 const customStyles = {
@@ -26,19 +26,21 @@ const customStyles = {
   }
 };
 
-
 class Nav extends Component {
   constructor(props) {
       super(props);
       this.state = {
-                    paintingslist: []
+                    paintingslist: [],
+                    user:""
       }
       this.setUser = this.setUser.bind(this);
 }
 
-setUser(user){
+setUser(userData){
   debugger;
-  this.setState({user})
+  if(this.state.user==""){
+    this.setState({user:userData})
+  }
 }
 
 componentDidMount(){
@@ -64,8 +66,9 @@ closeRegisterModal(e) {
 
 
 
+
   render() {
-    return (
+    return(
       <div>
       <section id="menu-0">
 
@@ -122,12 +125,7 @@ closeRegisterModal(e) {
                     <li className="nav-item nav-btn">
                       <Link to="/blog" className="nav-link btn btn-white btn-white-outline">BLOG</Link>
                     </li>
-                    <li className="nav-item nav-btn">
-                      <Link to="/login" className="nav-link btn btn-white btn-white-outline">LOGIN</Link>
-                    </li>
-                    <li className="nav-item nav-btn">
-                      <Link to="/register" className="nav-link btn btn-white btn-white-outline">REGISTER</Link>
-                    </li>
+                    <NavUser user={this.state.user} />
                 </ul>
                     <button hidden="" className="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
                         <div className="close-icon"></div>
@@ -150,7 +148,9 @@ closeRegisterModal(e) {
                   () => <PaintingArchive paintingslist={this.state.paintingslist}/>
                 }/>
               <Route path='/register' component={Register}/>
-              <Route path='/login' component={Login}/>
+              <Route path='/login' render={
+                  () => <Login setUser={this.setUser}/>
+                }/>
               <Route path='/blog' component={Blog}/>
               <Route path='/painting' component={Painting}/>
               <Route path='/events' component={Events}/>

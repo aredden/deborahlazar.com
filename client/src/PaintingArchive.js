@@ -23,7 +23,7 @@ class PaintingArchive extends Component{
   }
 
   render() {
-
+    debugger;
     return (
       <div>
       <section className="jumbotron text-center archive-body-padding">

@@ -6,7 +6,6 @@ var app = express();
 var conf = require('./config.js')
 var AWS = require('aws-sdk');
 var fs = require('fs');
-AWS = conf.setCredentials(AWS);
 var s3 = new AWS.S3({apiVersion: '2006-03-01'});
 var dynamodb = new AWS.DynamoDB({apiVersion: '2012-8-10'})
 var GetPaintings = require('./getpaintings.js');

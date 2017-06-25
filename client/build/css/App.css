@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.nav-user-padding{
+  text-align: -webkit-match-parent;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding-left: 12.5px;
+  padding-right: 12.5px;
+  padding-top: 1px;
+  padding-top: 1px;
+}
 .feed-scrolling{
   height: 1000px;
 }

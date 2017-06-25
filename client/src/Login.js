@@ -41,6 +41,8 @@ class Login extends Component{
 
     if(this.state.resp[0]){
       if(this.state.resp[0][0]=="logged-in"){
+        var data = this.state.resp[0];
+        this.props.setUser(this.state.resp[0]);
         return(
           <div>
             <section className="mbr-section mbr-after-navbar register-after-navbar" id="form1-4">
@@ -48,7 +50,7 @@ class Login extends Component{
                   <div className="container">
                       <div className="row">
                           <div className="col-xs-12 text-xs-center">
-                                <Link to={{pathname:'/',state:{user:this.state.resp}}} className="btn btn-secondary">Successfully Logged In!</Link>
+                                <Link to={{pathname:'/',state:{user:data}}} className="btn link">Successfully Logged In!</Link>
                           </div>
                       </div>
                   </div>
