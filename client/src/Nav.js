@@ -30,10 +30,15 @@ const customStyles = {
 class Nav extends Component {
   constructor(props) {
       super(props);
-      this.state = {modalLoginIsOpen: false,
-                    modalRegisterIsOpen: false,
+      this.state = {
                     paintingslist: []
-              }
+      }
+      this.setUser = this.setUser.bind(this);
+}
+
+setUser(user){
+  debugger;
+  this.setState({user})
 }
 
 componentDidMount(){
@@ -138,7 +143,7 @@ closeRegisterModal(e) {
           <main>
             <Switch>
               <Route exact path='/' render={
-                  () => <Home images={this.state.paintingslist}/>
+                  () => <Home images={this.state.paintingslist} setUser={this.setUser}/>
                 }/>
               <Route path='/administration' component={Administration}/>
               <Route path='/archive' render={

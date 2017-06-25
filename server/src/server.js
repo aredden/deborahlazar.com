@@ -3,10 +3,10 @@ var bodyParser = require("body-parser");
 var https = require("https");
 var fs = require("fs");
 var app = express();
-
+var conf = require('./config.js')
 var AWS = require('aws-sdk');
 var fs = require('fs');
-AWS.config={ "accessKeyId": "AKIAJ36ILXF4K753ZA6Q", "secretAccessKey": "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", "region": "us-east-1" };
+AWS = conf.setCredentials(AWS);
 var s3 = new AWS.S3({apiVersion: '2006-03-01'});
 var dynamodb = new AWS.DynamoDB({apiVersion: '2012-8-10'})
 var GetPaintings = require('./getpaintings.js');

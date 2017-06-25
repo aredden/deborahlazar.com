@@ -19,6 +19,7 @@ class Login extends Component{
     e.preventDefault();
     loginUser(this.state.email,this.state.pass,
     (text,resp)=>this.setState({resp:[text,resp]}))
+    debugger;
   }
 
   handleEmailChange(event) {
@@ -31,12 +32,32 @@ class Login extends Component{
   }
 
   render() {
+
     if(this.state.resp!==""){
       if(this.state.resp.code=="UserNotConfirmedException"){
         authText="User is not confirmed"
       }
     }
-    debugger;
+
+    if(this.state.resp[0]){
+      if(this.state.resp[0][0]=="logged-in"){
+        return(
+          <div>
+            <section className="mbr-section mbr-after-navbar register-after-navbar" id="form1-4">
+              <div className="mbr-section mbr-section__container mbr-section__container--middle">
+                  <div className="container">
+                      <div className="row">
+                          <div className="col-xs-12 text-xs-center">
+                                <Link to={{pathname:'/',state:{user:this.state.resp}}} className="btn btn-secondary">Successfully Logged In!</Link>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </section>
+          </div>
+        )
+      }
+    }
     return (
       <div>
       <section className="engine"><a rel="external" href="#">Mobirise</a></section>
